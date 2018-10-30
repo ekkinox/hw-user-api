@@ -5,6 +5,9 @@ namespace App\Domain\Model;
 class User implements UserInterface
 {
     /** @var string */
+    private $id;
+
+    /** @var string */
     private $login;
 
     /** @var string */
@@ -51,15 +54,14 @@ class User implements UserInterface
         $this->email = $email;
         $this->picture = $picture;
         $this->address = $address;
+
+        // We use the unique login as user id
+        $this->id = $login;
     }
 
-    /**
-     * Since we don't have user id in the source files,
-     * a property getId() method is available but returns the login, which is unique.
-     */
     public function getId(): string
     {
-        return $this->login;
+        return $this->id;
     }
 
     public function getLogin(): string

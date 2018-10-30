@@ -59,6 +59,10 @@ components:
         User:
             type: object
             properties:
+                id:
+                    description: User id (same as login).
+                    example: 'janedoe'
+                    type: string
                 login:
                     description: User login.
                     example: 'janedoe'

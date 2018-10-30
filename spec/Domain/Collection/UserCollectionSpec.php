@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace spec\App\Domain\Collection;
 
@@ -10,28 +10,28 @@ use PhpSpec\ObjectBehavior;
 
 class UserCollectionSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith([]);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldImplement(UserCollection::class);
     }
 
-    function it_implements_UserCollectionInterface()
+    public function it_implements_UserCollectionInterface()
     {
         $this->shouldImplement(UserCollectionInterface::class);
     }
 
-    function it_is_empty_by_default()
+    public function it_is_empty_by_default()
     {
         $this->all()->shouldBeArray();
         $this->all()->shouldReturn([]);
     }
 
-    function it_can_be_constructed_with_users()
+    public function it_can_be_constructed_with_users()
     {
         $user1 = $this->createUser(['login' => 'user1']);
         $user2 = $this->createUser(['login' => 'user2']);
@@ -42,7 +42,7 @@ class UserCollectionSpec extends ObjectBehavior
         $this->all()->shouldReturn([$user1, $user2]);
     }
 
-    function it_can_add_users()
+    public function it_can_add_users()
     {
         $user1 = $this->createUser(['login' => 'user1']);
         $user2 = $this->createUser(['login' => 'user2']);
@@ -58,18 +58,22 @@ class UserCollectionSpec extends ObjectBehavior
         $this->all()->shouldReturn([$user1, $user2]);
     }
 
-    function it_can_add_and_retrieve_users()
+    public function it_can_add_and_retrieve_users()
     {
         $user = $this->createUser(['login' => 'user']);
 
-        $this->add($user)->shouldReturn($this);
         $this->add($user)->shouldReturn($this);
 
         $this->get('user')->shouldReturnAnInstanceOf(UserInterface::class);
         $this->get('user')->shouldReturn($user);
     }
 
-    function createUser(array $data): UserInterface
+    public function it_cannot_retrieve_non_existing_user()
+    {
+        $this->get('invalid')->shouldReturn(null);
+    }
+
+    private function createUser(array $data): UserInterface
     {
         return new User(
             $data['login'] ?? 'login',

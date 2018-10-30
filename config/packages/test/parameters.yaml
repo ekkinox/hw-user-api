@@ -1,0 +1,3 @@
+parameters:
+    data.csv.path: '%kernel.project_dir%/tests/data/testtakers_test.csv'
+    data.json.path: '%kernel.project_dir%/tests/data/testtakers_test.json'

@@ -1,8 +1,7 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Domain\Collection;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use App\Domain\Model\User;
 use Behat\Gherkin\Node\TableNode;
 use App\Domain\Collection\UserCollection;

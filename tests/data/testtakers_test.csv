@@ -1,0 +1,3 @@
+login,password,title,lastname,firstname,gender,email,picture,address
+csv_johndoe,password,mr,doe,john,male,john@doe.com,http://example.com/johndoe.jpg,123 Some Street SomeVille 99999
+csv_janedoe,password,mrs,doe,jane,female,jane@doe.com,http://example.com/janedoe.jpg,123 Other Street OtherVille 11111

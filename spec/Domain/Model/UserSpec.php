@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace spec\App\Domain\Model;
 
@@ -18,7 +18,7 @@ class UserSpec extends ObjectBehavior
     private $picture = 'http://example.com/johndoe.jpg';
     private $address = '123 Some Street SomeVille 99999';
 
-    function let()
+    public function let()
     {
         $this->beConstructedWith(
             $this->login,
@@ -33,65 +33,72 @@ class UserSpec extends ObjectBehavior
         );
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldImplement(User::class);
     }
 
-    function it_implements_UserInterface()
+    public function it_implements_UserInterface()
     {
         $this->shouldImplement(UserInterface::class);
     }
 
-    function it_can_retrieve_login()
+    public function it_can_retrieve_id()
+    {
+        // same as id, since we use unique login for id
+        $this->getId()->shouldBeString();
+        $this->getId()->shouldReturn($this->login);
+    }
+
+    public function it_can_retrieve_login()
     {
         $this->getLogin()->shouldBeString();
         $this->getLogin()->shouldReturn($this->login);
     }
 
-    function it_can_retrieve_password()
+    public function it_can_retrieve_password()
     {
         $this->getPassword()->shouldBeString();
         $this->getPassword()->shouldReturn($this->password);
     }
 
-    function it_can_retrieve_title()
+    public function it_can_retrieve_title()
     {
         $this->getTitle()->shouldBeString();
         $this->getTitle()->shouldReturn($this->title);
     }
 
-    function it_can_retrieve_lastname()
+    public function it_can_retrieve_lastname()
     {
         $this->getLastname()->shouldBeString();
         $this->getLastname()->shouldReturn($this->lastname);
     }
 
-    function it_can_retrieve_firstname()
+    public function it_can_retrieve_firstname()
     {
         $this->getFirstname()->shouldBeString();
         $this->getFirstname()->shouldReturn($this->firstname);
     }
 
-    function it_can_retrieve_gender()
+    public function it_can_retrieve_gender()
     {
         $this->getGender()->shouldBeString();
         $this->getGender()->shouldReturn($this->gender);
     }
 
-    function it_can_retrieve_email()
+    public function it_can_retrieve_email()
     {
         $this->getEmail()->shouldBeString();
         $this->getEmail()->shouldReturn($this->email);
     }
 
-    function it_can_retrieve_picture()
+    public function it_can_retrieve_picture()
     {
         $this->getPicture()->shouldBeString();
         $this->getPicture()->shouldReturn($this->picture);
     }
 
-    function it_can_retrieve_address()
+    public function it_can_retrieve_address()
     {
         $this->getAddress()->shouldBeString();
         $this->getAddress()->shouldReturn($this->address);

@@ -1,0 +1,5 @@
+parameters:
+    locale: 'en'
+    data.format: 'json'
+    data.csv.path: '%kernel.project_dir%/data/testtakers.csv'
+    data.json.path: '%kernel.project_dir%/data/testtakers.json'

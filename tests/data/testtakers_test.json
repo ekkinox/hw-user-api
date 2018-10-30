@@ -1,0 +1,24 @@
+[
+  {
+    "login":"json_johndoe",
+    "password":"password",
+    "title":"mr",
+    "lastname":"doe",
+    "firstname":"john",
+    "gender":"male",
+    "email":"john@doe.com",
+    "picture":"https://example.com/johndoe.jpg",
+    "address":"123 Some Street SomeVille 99999"
+  },
+  {
+    "login":"json_janedoe",
+    "password":"password",
+    "title":"mrs",
+    "lastname":"doe",
+    "firstname":"jane",
+    "gender":"female",
+    "email":"jane@doe.com",
+    "picture":"https://example.com/janedoe.jpg",
+    "address":"123 Other Street OtherVille 11111"
+  }
+]
