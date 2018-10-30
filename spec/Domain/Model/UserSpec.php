@@ -29,7 +29,8 @@ class UserSpec extends ObjectBehavior
             $this->gender,
             $this->email,
             $this->picture,
-            $this->address);
+            $this->address
+        );
     }
 
     function it_is_initializable()

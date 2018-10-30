@@ -3,6 +3,7 @@
 namespace Domain\Model;
 
 use App\Domain\Model\User;
+use App\Domain\Model\UserInterface;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use PHPUnit\Framework\Assert;
@@ -12,7 +13,7 @@ use PHPUnit\Framework\Assert;
  */
 class UserContext implements Context
 {
-    /** @var User */
+    /** @var UserInterface */
     private $user;
 
     /**

@@ -1,9 +1,9 @@
 Feature:
-  In order to manipulate user business data
+  In order to manipulate users business data
   As a developer
-  I want to have an user object handling my business data
+  I want to have an user object handling my users business data
 
-  Scenario: The User object can handle and retrieve my user business data
+  Scenario: The user object can handle and retrieve my user business data
     When I construct an user object with following business data:
       | login     | johndoe                         |
       | password  | password                        |

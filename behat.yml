@@ -5,6 +5,7 @@ default:
         default:
             contexts:
                 - Domain\Model\UserContext
+                - Domain\Collection\UserCollectionContext
     extensions:
         Behat\Symfony2Extension:
             kernel:

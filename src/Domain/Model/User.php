@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Domain\Model;
 
@@ -51,6 +51,15 @@ class User implements UserInterface
         $this->email = $email;
         $this->picture = $picture;
         $this->address = $address;
+    }
+
+    /**
+     * Since we don't have user id in the source files,
+     * a property getId() method is available but returns the login, which is unique.
+     */
+    public function getId(): string
+    {
+        return $this->login;
     }
 
     public function getLogin(): string
