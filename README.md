@@ -19,3 +19,11 @@ You can run the api using symfony build-in server:
 $ php -S 127.0.0.1:8000 -t public
 ```
 The api will be running on the port 8000.
+
+### With docker
+
+You can also run shipped docker php fpm container:
+```
+$ docker-compose up -d
+```
+The api will be running on the port 8000.
