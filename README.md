@@ -12,11 +12,18 @@ Note: you can use the [swagger online editor](https://editor.swagger.io) tool to
 
 ## Usage
 
+### Installation
+
+With composer:
+```
+$ composer install
+```
+
 ### With build-in web server
 
 You can run the api using symfony build-in server:
 ```
-$ php -S 127.0.0.1:8000 -t public
+$ bin/console server:run 8000
 ```
 The api will be running on the port 8000.
 
@@ -27,3 +34,19 @@ You can also run shipped docker php fpm container:
 $ docker-compose up -d
 ```
 The api will be running on the port 8000.
+
+## Tests
+
+### Behat
+
+You can run Behat tests with:
+```
+$ vendor/bin/behat
+```
+
+### Phpunit
+
+You can run phpunit tests with:
+```
+$ bin/phpunit
+```
