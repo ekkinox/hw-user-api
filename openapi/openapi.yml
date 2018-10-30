@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+    version: v1
+    title: User API
+    description: Homework User API.
+servers:
+    - url: 'http://localhost:8000/v1/'
+      description: Local User API
+paths:
+    '/users':
+        get:
+            summary: User list
+            description: User listing endpoint.
+            operationId: ListUsersAction
+            responses:
+                '200':
+                    description: Success.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/UsersList"
+                '500':
+                    description: Internal server error.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+    '/users/{userId}':
+        get:
+            summary: User details
+            description: User details endpoint.
+            operationId: GetUserAction
+            parameters:
+                - in: path
+                  name: userId
+                  description: User id (login).
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Success.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/User"
+                '500':
+                    description: Internal server error.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+components:
+    schemas:
+        UsersList:
+            type: array
+            items:
+                $ref: "#/components/schemas/User"
+        User:
+            type: object
+            properties:
+                login:
+                    description: User login.
+                    example: 'janedoe'
+                    type: string
+                password:
+                    description: User password.
+                    example: 'password'
+                    type: string
+                title:
+                    description: User title.
+                    example: 'mrs'
+                    type: string
+                lastname:
+                    description: User lastname.
+                    example: 'Doe'
+                    type: string
+                firstname:
+                    description: User firstname.
+                    example: 'Jane'
+                    type: string
+                gender:
+                    description: User gender.
+                    example: 'female'
+                    type: string
+                email:
+                    description: User email.
+                    example: 'jane@doe.com'
+                    type: string
+                picture:
+                    description: User picture URL.
+                    example: 'https://example.com/janedoe.jpg'
+                    type: string
+                address:
+                    description: User address.
+                    example: '1234 Some Street SomeTown 99999'
+                    type: string
+        Error:
+            type: object
+            properties:
+                message:
+                    description: Error message.
+                    example: 'error message'
+                    type: string
+
