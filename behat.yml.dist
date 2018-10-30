@@ -4,9 +4,7 @@ default:
     suites:
         default:
             contexts:
-                - FeatureContext:
-                    kernel: '@kernel'
-
+                - Domain\Model\UserContext
     extensions:
         Behat\Symfony2Extension:
             kernel:

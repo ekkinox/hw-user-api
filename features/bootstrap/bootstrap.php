@@ -2,6 +2,8 @@
 
 use Symfony\Component\Dotenv\Dotenv;
 
+require __DIR__ . '/../../bin/.phpunit/phpunit-6.5/vendor/autoload.php';
+
 // The check is to ensure we don't use .env in production
 if (!isset($_SERVER['APP_ENV'])) {
     if (!class_exists(Dotenv::class)) {
