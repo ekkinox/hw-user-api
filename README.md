@@ -1,2 +1,4 @@
-# hw-user-api
-Homework user api.
+# Homework User API
+
+User API homework, by candidate [Jonathan VUILLEMIN](mailto:ekkinox@gmail.com).
+
