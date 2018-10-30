@@ -2,6 +2,18 @@
 
 User API homework, by candidate [Jonathan VUILLEMIN](mailto:ekkinox@gmail.com).
 
+## To read before starting
+
+Technical stack:
+- [PHP 7.2](http://php.net/supported-versions.php)
+- [Sumfony 4 & flex](https://symfony.com/)
+- [Behat](http://behat.org/en/latest/)
+- [Phpspec](http://www.phpspec.net/en/stable/)
+- [Phpunit](https://phpunit.de/)
+
+Implementation:
+- Used BBD approach (behat + phpspec) to define domain objects (classes, interfaces)
+
 ## API specifications
 
 ### OpenAPI
@@ -42,6 +54,13 @@ The api will be running on the port 8000.
 You can run Behat tests with:
 ```
 $ vendor/bin/behat
+```
+
+### Phpspec
+
+You can run Phpspec tests with:
+```
+$ vendor/bin/phpspec run
 ```
 
 ### Phpunit
