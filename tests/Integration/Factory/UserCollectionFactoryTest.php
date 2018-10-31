@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * @see Test files located in tests/data.
+ * @see config/packages/test/parameters.yaml
  */
 class UserCollectionFactoryTest extends KernelTestCase
 {

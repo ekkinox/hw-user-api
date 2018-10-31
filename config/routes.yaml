@@ -1,3 +1,4 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+getUser:
+    path: /v1/users/{userId}
+    methods: GET
+    defaults: { _controller: App\Action\GetUserAction }

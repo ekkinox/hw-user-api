@@ -44,6 +44,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/User"
+                '404':
+                    description: User not found.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
                 '500':
                     description: Internal server error.
                     content:
@@ -106,4 +112,12 @@ components:
                     description: Error message.
                     example: 'error message'
                     type: string
+                file:
+                    description: User file.
+                    example: '/some/path/class.php'
+                    type: string
+                line:
+                    description: Error line.
+                    example: 99
+                    type: integer
 

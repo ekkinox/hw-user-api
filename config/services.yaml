@@ -8,12 +8,15 @@ services:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
-    App\Controller\:
-        resource: '../src/Controller'
+    App\Action\:
+        resource: '../src/Action'
         tags: ['controller.service_arguments']
 
     GetSetMethodNormalizer:
         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
         public: false
         tags: [serializer.normalizer]
+
+    App\Repository\UserRepository:
+        arguments: ["@=service('App\\\\Factory\\\\UserCollectionFactory').create(parameter('data.format'))"]
 
