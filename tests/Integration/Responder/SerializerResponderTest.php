@@ -91,7 +91,7 @@ class SerializerResponderTest extends KernelTestCase
         $response = $this->subject->createErrorJsonResponse($exception);
 
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(417, $response->getStatusCode());
+        $this->assertEquals(418, $response->getStatusCode());
         $this->assertEquals('exceptionHeader', $response->headers->get('some'));
         $this->assertArraySubset(
             [
@@ -108,7 +108,7 @@ class SerializerResponderTest extends KernelTestCase
         {
             public function getStatusCode()
             {
-                return 417;
+                return 418; //teapot
             }
 
             public function getHeaders()

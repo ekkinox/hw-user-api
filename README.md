@@ -15,11 +15,18 @@ Technical stack details:
 - [Phpunit](https://phpunit.de/)
 
 Implementation details:
+- The user **login is used as the id**
+    - since the source files did not provided ids, but logins where unique
+- Used **BBD approach** ([behat](features) + [phpspec](spec)) to specify domain objects
 - Used **ADR pattern**:
     - [Actions](src/Action) (not ContainerAware),
     - [Domain](src/Domain) business logic (extractable),
     - [Responder](src/Responder) (reusable, domain agnostic)
-- Used **BBD approach** ([behat](features) + [phpspec](spec)) to specify domain objects
+
+Did not have time to:
+- apply proper content negociation (Accept header & 406 http code)
+- apply hypermedia type (ex: json-ld, hydra, etc)
+- use Behat for functional tests
 
 ## API specifications
 
@@ -28,6 +35,20 @@ Implementation details:
 You can find OpenAPI specification for the api in the [openapi/openapi.yml](openapi/openapi.yml) file.
 
 Note: you can use the [swagger online editor](https://editor.swagger.io) tool to browse it.
+
+### Examples
+
+User details example:
+```
+[GET]http://localhost:8000/v1/users/fosterabigail
+```
+This endpoint will get the user with id (login) **fosterabigail**.
+
+User list example:
+```
+[GET]http://localhost:8000/v1/users?login=foster&offset=0&limit=5
+```
+This endpoint will list the **first 5 users**, with their login containing **'foster'**.
 
 ## Usage
 
@@ -57,7 +78,7 @@ Note: The api will be running on the port 8000.
 
 ## Tests
 
-### Behat
+### BDD to specify the domain
 
 Behat features & contexts can be found in [features](features) folder.
 
@@ -66,8 +87,6 @@ You can run Behat tests with:
 $ vendor/bin/behat
 ```
 
-### Phpspec
-
 Phpspec specifications can be found in [spec](spec) folder.
 
 You can run Phpspec tests with:
@@ -75,9 +94,9 @@ You can run Phpspec tests with:
 $ vendor/bin/phpspec run
 ```
 
-### Phpunit
+### Phpunit for testing the api
 
-Unit, integration and functional tests can be found in [tests](tests) folder.
+Unit, integration and functional tests of the api can be found in [tests](tests) folder.
 
 You can run Phpunit tests with:
 ```
