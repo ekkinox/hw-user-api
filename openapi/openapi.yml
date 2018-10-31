@@ -144,7 +144,7 @@ components:
                     example: 'error message'
                     type: string
                 file:
-                    description: User file.
+                    description: Error file.
                     example: '/some/path/class.php'
                     type: string
                 line:
