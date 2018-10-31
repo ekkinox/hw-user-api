@@ -34,7 +34,7 @@ class UserRepository
     }
 
     /**
-     * @return UserCollectionInterface[]
+     * @return UserInterface[]
      */
     public function findBy(array $criteria): array
     {
