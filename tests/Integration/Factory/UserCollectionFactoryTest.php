@@ -9,6 +9,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @see config/packages/test/parameters.yaml
+ * @see tests/data/
  */
 class UserCollectionFactoryTest extends KernelTestCase
 {

@@ -16,6 +16,7 @@
         "behat/symfony2-extension": "^2.1@dev",
         "phpspec/phpspec": "^5.1@dev",
         "phpunit/phpunit": "^7.5@dev",
+        "symfony/browser-kit": "*",
         "symfony/dotenv": "*",
         "symfony/web-server-bundle": "*"
     },

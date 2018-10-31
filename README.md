@@ -7,16 +7,19 @@ User API homework, by candidate [Jonathan VUILLEMIN](mailto:ekkinox@gmail.com).
 
 ## To read before starting
 
-Technical stack used:
-- [PHP 7.2](http://php.net/supported-versions.php)
+Technical stack details:
+- [PHP >= 7.1](http://php.net/supported-versions.php)
 - [Symfony 4 & flex](https://symfony.com/)
 - [Behat](http://behat.org/en/latest/)
 - [Phpspec](http://www.phpspec.net/en/stable/)
 - [Phpunit](https://phpunit.de/)
-- needed to configure composer `"minimum-stability": "dev"` on purpose (behat vs sf4 deps)
 
 Implementation details:
-- Used **BBD approach** (behat + phpspec) to **define domain objects** (classes, interfaces)
+- Used **ADR pattern**:
+    - [Actions](src/Action) (not ContainerAware),
+    - [Domain](src/Domain) business logic (extractable),
+    - [Responder](src/Responder) (reusable, domain agnostic)
+- Used **BBD approach** ([behat](features) + [phpspec](spec)) to specify domain objects
 
 ## API specifications
 
@@ -34,6 +37,7 @@ With composer:
 ```
 $ composer install
 ```
+Note: forced to set composer `"minimum-stability": "dev"` on purpose (behat vs sf4 [issue](https://github.com/Behat/Behat/issues/1174))
 
 ### With build-in web server
 
@@ -73,7 +77,7 @@ $ vendor/bin/phpspec run
 
 ### Phpunit
 
-Unit tests can be found in [tests](tests) folder.
+Unit, integration and functional tests can be found in [tests](tests) folder.
 
 You can run Phpunit tests with:
 ```
