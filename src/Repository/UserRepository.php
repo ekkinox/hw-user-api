@@ -8,6 +8,9 @@ use App\Exception\UserNotFoundException;
 
 class UserRepository
 {
+    private const DEFAULT_OFFSET = 0;
+    private const DEFAULT_LIMIT = 100;
+
     /** @var UserCollectionInterface */
     private $userCollection;
 
@@ -28,5 +31,32 @@ class UserRepository
         }
 
         return $user;
+    }
+
+    /**
+     * @return UserCollectionInterface[]
+     */
+    public function findBy(array $criteria): array
+    {
+        $users = $this->userCollection->all();
+
+        $users = $this->filterCollectionByLogin($users, $criteria['login'] ?? null);
+
+        return array_slice(
+            $users,
+            isset($criteria['offset']) ? (int)$criteria['offset'] : self::DEFAULT_OFFSET,
+            isset($criteria['limit']) ? (int)$criteria['limit'] : self::DEFAULT_LIMIT
+        );
+    }
+
+    private function filterCollectionByLogin(array $users, string $loginCriteria = null): array
+    {
+        if (!empty($loginCriteria)) {
+            $users = array_filter($users, function (UserInterface $user) use ($loginCriteria): bool {
+                return false !== strpos($user->getLogin(), $loginCriteria);
+            });
+        }
+
+        return $users;
     }
 }

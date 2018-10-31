@@ -22,22 +22,72 @@ class UserRepositoryTest extends TestCase
         $subject->find('invalid');
     }
 
-    public function testItCanFindAnUser()
+    public function testItCanFindAnUserById()
     {
         $subject = new UserRepository($this->createUserCollection([
             [
-                'login' => 'user1',
+                'login' => 'user',
                 'firstname' => 'firstname'
             ]
         ]));
 
-        $result = $subject->find('user1');
+        $result = $subject->find('user');
 
-        $this->assertEquals('user1', $result->getId());
-        $this->assertEquals('user1', $result->getLogin());
+        $this->assertEquals('user', $result->getId());
+        $this->assertEquals('user', $result->getLogin());
         $this->assertEquals('firstname', $result->getFirstname());
     }
 
+    public function testItCanFindAnUserByCriteriaWithoutPagination()
+    {
+        $subject = new UserRepository($this->createUserCollection([
+            [
+                'login' => 'someuser1'
+            ],
+            [
+                'login' => 'someuser2'
+            ],
+            [
+                'login' => 'someuser3'
+            ]
+        ]));
+
+        $results = $subject->findBy(['login' => 'user']);
+
+        $this->assertCount(3, $results);
+    }
+
+    public function testItCanFindAnUserByCriteriaWithPagination()
+    {
+        $subject = new UserRepository($this->createUserCollection([
+            [
+                'login' => 'someuser1',
+                'firstname' => 'firstname1'
+            ],
+            [
+                'login' => 'someuser2',
+                'firstname' => 'firstname2'
+            ],
+            [
+                'login' => 'someuser3',
+                'firstname' => 'firstname3'
+            ]
+        ]));
+
+        $results = $subject->findBy([
+            'login' => 'user',
+            'offset' => 1,
+            'limit' => 1,
+        ]);
+
+        $this->assertCount(1, $results);
+
+        $result = current($results);
+
+        $this->assertEquals('someuser2', $result->getId());
+        $this->assertEquals('someuser2', $result->getLogin());
+        $this->assertEquals('firstname2', $result->getFirstname());
+    }
 
     private function createUserCollection(array $data = []): UserCollectionInterface
     {

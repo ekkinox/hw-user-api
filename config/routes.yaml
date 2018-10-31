@@ -2,3 +2,8 @@ getUser:
     path: /v1/users/{userId}
     methods: GET
     defaults: { _controller: App\Action\GetUserAction }
+
+listUsers:
+    path: /v1/users
+    methods: GET
+    defaults: { _controller: App\Action\ListUsersAction }

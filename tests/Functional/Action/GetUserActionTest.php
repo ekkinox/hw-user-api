@@ -5,6 +5,7 @@ namespace App\Tests\Functional\Action;
 use App\Tests\Functional\AbstractActionTest;
 
 /**
+ * By default, from test json file.
  * @see config/packages/test/parameters.yaml
  * @see tests/data/
  */

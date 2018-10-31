@@ -12,6 +12,31 @@ paths:
             summary: User list
             description: User listing endpoint.
             operationId: ListUsersAction
+            parameters:
+                - in: query
+                  name: login
+                  description: User login to filter on (contains) .
+                  required: false
+                  schema:
+                      type: string
+                - in: query
+                  name: offset
+                  description: Pagination offset.
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      example: 0
+                      default: 0
+                - in: query
+                  name: limit
+                  description: Pagination limit.
+                  required: false
+                  schema:
+                      type: integer
+                      format: int32
+                      example: 100
+                      default: 100
             responses:
                 '200':
                     description: Success.
@@ -19,6 +44,12 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/UsersList"
+                '400':
+                    description: Bad request.
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
                 '500':
                     description: Internal server error.
                     content:
