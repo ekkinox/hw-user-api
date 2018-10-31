@@ -12,6 +12,7 @@ Technical stack used:
 - [Behat](http://behat.org/en/latest/)
 - [Phpspec](http://www.phpspec.net/en/stable/)
 - [Phpunit](https://phpunit.de/)
+- needed to configure composer `"minimum-stability": "dev"` on purpose (behat vs sf4 deps)
 
 Implementation details:
 - Used **BBD approach** (behat + phpspec) to **define domain objects** (classes, interfaces)
