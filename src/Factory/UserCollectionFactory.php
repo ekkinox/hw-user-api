@@ -40,7 +40,7 @@ class UserCollectionFactory
         /** @var UserInterface[] $users */
         $users = $this->serializer->deserialize(
             file_get_contents($this->parameterBag->get($path)),
-            User::class . '[]',
+            User::class.'[]',
             $format
         );
 

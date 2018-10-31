@@ -1,6 +1,7 @@
 # Homework User API
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/build-status/master)
 
 User API homework, by candidate [Jonathan VUILLEMIN](mailto:ekkinox@gmail.com).
 
@@ -76,5 +77,5 @@ Unit tests can be found in [tests](tests) folder.
 
 You can run Phpunit tests with:
 ```
-$ bin/phpunit
+$ vendor/bin/phpunit
 ```
