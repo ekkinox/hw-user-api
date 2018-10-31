@@ -24,7 +24,7 @@ Implementation details:
     - [Responder](src/Responder) (reusable, domain agnostic)
 - Concerning **flexibility / generalisation**:
     - the files path and default format (json) are stored as [settings](config/packages/parameters.yaml)
-    - use the symfony/serializer component to deserialize the source files
+    - used the [symfony/serializer](https://symfony.com/doc/current/components/serializer.html) component to deserialize the source files
         - this serializer can support many other format (custom ones can be added)
     - if we would go from database or webservice source, created domain interfaces
         - `UserInterface`: to open custom implementations
