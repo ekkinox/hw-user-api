@@ -1,5 +1,7 @@
 # Homework User API
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ekkinox/hw-user-api/?branch=master)
+
 User API homework, by candidate [Jonathan VUILLEMIN](mailto:ekkinox@gmail.com).
 
 ## To read before starting
