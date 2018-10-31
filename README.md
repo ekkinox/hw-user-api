@@ -15,18 +15,25 @@ Technical stack details:
 - [Phpunit](https://phpunit.de/)
 
 Implementation details:
-- The user **login is used as the id**
-    - since the source files did not provided ids, but logins where unique
+- The **user id has the same value as his login**
+    - since the source files did not provided ids, but unique logins could be used
 - Used **BBD approach** ([behat](features) + [phpspec](spec)) to specify domain objects
 - Used **ADR pattern**:
-    - [Actions](src/Action) (not ContainerAware),
+    - [Actions](src/Action) (callables not ContainerAware),
     - [Domain](src/Domain) business logic (extractable),
     - [Responder](src/Responder) (reusable, domain agnostic)
+- Concerning **flexibility / generalisation**:
+    - the files path and default format (json) are stored as [settings](config/packages/parameters.yaml)
+    - use the symfony/serializer component to deserialize the source files
+        - this serializer can support many other format (custom ones can be added)
+    - if we would go from database or webservice source, created domain interfaces
+        - `UserInterface`: to open custom implementations
+        - `UserCollectionInterface`: to be hydrated from anywhere / anyhow with `UserInterface` implementations
 
 Did not have time to:
 - apply proper content negociation (Accept header & 406 http code)
 - apply hypermedia type (ex: json-ld, hydra, etc)
-- use Behat for functional tests
+- use Behat + Mink for behavior tests
 
 ## API specifications
 
